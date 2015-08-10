@@ -1,0 +1,1154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_IndexingMDPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AG_AutoFill">
+          <Key>
+            <PropertyRef Name="IDAutoFill" />
+          </Key>
+          <Property Name="IDAutoFill" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AutoFillName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDDocumentType" Type="int" Nullable="false" />
+          <Property Name="IDExternalDataBase" Type="int" Nullable="false" />
+          <Property Name="IDExternalTable" Type="int" Nullable="false" />
+          <Property Name="IDField" Type="int" Nullable="false" />
+          <Property Name="IDExternalField" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AG_Combos">
+          <Key>
+            <PropertyRef Name="IDCombo" />
+          </Key>
+          <Property Name="IDCombo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDField" Type="int" Nullable="false" />
+          <Property Name="ComboValue" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AG_DocumentTypes">
+          <Key>
+            <PropertyRef Name="IDDocumentType" />
+          </Key>
+          <Property Name="IDDocumentType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocumentName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IndexTable" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ExportTable" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DocumentIndexType" Type="int" Nullable="false" />
+          <Property Name="AllowSignDocument" Type="bit" Nullable="false" />
+          <Property Name="FileTemplateForSectors" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="AG_Fields">
+          <Key>
+            <PropertyRef Name="IDField" />
+          </Key>
+          <Property Name="IDField" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDocumentType" Type="int" Nullable="false" />
+          <Property Name="IDFieldType" Type="int" Nullable="false" />
+          <Property Name="FieldName" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="MaxValue" Type="int" Nullable="false" />
+          <Property Name="MinValue" Type="int" Nullable="false" />
+          <Property Name="IsNuleable" Type="bit" Nullable="false" />
+          <Property Name="IsUnique" Type="bit" Nullable="false" />
+          <Property Name="IsLookup" Type="bit" Nullable="false" />
+          <Property Name="IsEncrypted" Type="bit" Nullable="false" />
+          <Property Name="Posx1" Type="int" />
+          <Property Name="Posy1" Type="int" />
+          <Property Name="Posx2" Type="int" />
+          <Property Name="Posy2" Type="int" />
+          <Property Name="PageNum" Type="int" />
+          <Property Name="IsSector" Type="bit" />
+          <Property Name="IDVisualization" Type="int" />
+          <Property Name="IsTextDeployable" Type="bit" />
+        </EntityType>
+        <EntityType Name="AG_FieldTypes">
+          <Key>
+            <PropertyRef Name="IDFieldType" />
+          </Key>
+          <Property Name="IDFieldType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FieldTypeDescription" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MaxValue" Type="int" />
+          <Property Name="MinValue" Type="int" />
+        </EntityType>
+        <EntityType Name="AG_Groups">
+          <Key>
+            <PropertyRef Name="IDGroup" />
+          </Key>
+          <Property Name="IDGroup" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="IndexPermission" Type="bit" Nullable="false" />
+          <Property Name="AuditPermission" Type="bit" Nullable="false" />
+          <Property Name="ImportLotsPermission" Type="bit" Nullable="false" />
+          <Property Name="ExportLotsPermission" Type="bit" Nullable="false" />
+          <Property Name="CreateDocumentsPermission" Type="bit" Nullable="false" />
+          <Property Name="DeleteDocumentsPermission" Type="bit" Nullable="false" />
+          <Property Name="EditDocumentsPermission" Type="bit" Nullable="false" />
+          <Property Name="CreateGroupPermission" Type="bit" Nullable="false" />
+          <Property Name="DeleteGroupPermission" Type="bit" Nullable="false" />
+          <Property Name="ModifyGroupPermission" Type="bit" Nullable="false" />
+          <Property Name="CreateUserPermission" Type="bit" Nullable="false" />
+          <Property Name="DeleteUsersPermission" Type="bit" Nullable="false" />
+          <Property Name="ModifyUsersPermission" Type="bit" Nullable="false" />
+          <Property Name="PrintDocumentsPermission" Type="bit" Nullable="false" />
+          <Property Name="EmailDocumentsPermission" Type="bit" Nullable="false" />
+          <Property Name="ExportDocumentsPermission" Type="bit" Nullable="false" />
+          <Property Name="CutPasteDocumentsPermission" Type="bit" Nullable="false" />
+          <Property Name="DocumentNotesPermission" Type="bit" Nullable="false" />
+          <Property Name="EditDocumentsDataPermission" Type="bit" Nullable="false" />
+          <Property Name="ConfigurePermission" Type="bit" Nullable="false" />
+          <Property Name="IDDocumentType" Type="int" />
+          <Property Name="DownloadDocumentPermission" Type="tinyint" />
+          <Property Name="EditNotesPermission" Type="tinyint" />
+          <Property Name="ViewNotesPermission" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="AG_LogUserAction">
+          <Key>
+            <PropertyRef Name="idLogUserAction" />
+          </Key>
+          <Property Name="idLogUserAction" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDUser" Type="int" />
+          <Property Name="Action" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="EventDate" Type="datetime" />
+          <Property Name="IDDocumentType" Type="int" />
+          <Property Name="IdsExport" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="AG_LogUsers">
+          <Key>
+            <PropertyRef Name="IDLogRegister" />
+          </Key>
+          <Property Name="IDLogRegister" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDUser" Type="int" />
+          <Property Name="Login" Type="datetime" Nullable="false" />
+          <Property Name="Logout" Type="datetime" Nullable="false" />
+          <Property Name="Permanence" Type="bigint" />
+        </EntityType>
+        <EntityType Name="AG_Lots">
+          <Key>
+            <PropertyRef Name="IDLot" />
+          </Key>
+          <Property Name="IDLot" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LotName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="LotOrigPath" Type="varchar" MaxLength="500" />
+          <Property Name="LotCreationDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="IsLotClose" Type="bit" Nullable="false" />
+          <Property Name="LotTotalPages" Type="int" />
+          <Property Name="LotDestPath" Type="varchar" MaxLength="500" />
+          <Property Name="IDDocumentType" Type="int" />
+          <Property Name="Id_State" Type="int" Nullable="false" />
+          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="LotState" Type="int" />
+          <Property Name="LotDescPath" Type="varchar" MaxLength="255" />
+          <Property Name="LotIndexType" Type="int" />
+        </EntityType>
+        <EntityType Name="AG_Parametrics">
+          <Key>
+            <PropertyRef Name="IDParam" />
+          </Key>
+          <Property Name="IDParam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParamName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ParamValue" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AG_Query">
+          <Key>
+            <PropertyRef Name="IDQuery" />
+          </Key>
+          <Property Name="IDQuery" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="queryName" Type="varchar" MaxLength="100" />
+          <Property Name="queryStatement" Type="varchar" MaxLength="500" />
+          <Property Name="IDUser" Type="int" />
+        </EntityType>
+        <EntityType Name="AG_UserGroups">
+          <Key>
+            <PropertyRef Name="IDUserGroup" />
+          </Key>
+          <Property Name="IDUserGroup" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDUser" Type="int" Nullable="false" />
+          <Property Name="IDGroup" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AG_Users">
+          <Key>
+            <PropertyRef Name="IDUser" />
+          </Key>
+          <Property Name="IDUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsEnabled" Type="bit" Nullable="false" />
+          <Property Name="UserDescription" Type="varchar" MaxLength="50" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="IdConfigSearch" Type="int" />
+          <Property Name="logueado" Type="tinyint" />
+          <Property Name="ult_ingreso" Type="datetime" />
+          <Property Name="ReceiveMail" Type="bit" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK_AG_Groups_AG_DocumentTypes">
+          <End Role="AG_DocumentTypes" Type="Self.AG_DocumentTypes" Multiplicity="0..1" />
+          <End Role="AG_Groups" Type="Self.AG_Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_DocumentTypes">
+              <PropertyRef Name="IDDocumentType" />
+            </Principal>
+            <Dependent Role="AG_Groups">
+              <PropertyRef Name="IDDocumentType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AG_Query_AG_Users">
+          <End Role="AG_Users" Type="Self.AG_Users" Multiplicity="0..1" />
+          <End Role="AG_Query" Type="Self.AG_Query" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_Users">
+              <PropertyRef Name="IDUser" />
+            </Principal>
+            <Dependent Role="AG_Query">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AG_UserGroups_AG_Groups">
+          <End Role="AG_Groups" Type="Self.AG_Groups" Multiplicity="1" />
+          <End Role="AG_UserGroups" Type="Self.AG_UserGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_Groups">
+              <PropertyRef Name="IDGroup" />
+            </Principal>
+            <Dependent Role="AG_UserGroups">
+              <PropertyRef Name="IDGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMBO_FIELD">
+          <End Role="AG_Fields" Type="Self.AG_Fields" Multiplicity="1" />
+          <End Role="AG_Combos" Type="Self.AG_Combos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_Fields">
+              <PropertyRef Name="IDField" />
+            </Principal>
+            <Dependent Role="AG_Combos">
+              <PropertyRef Name="IDField" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK8EE78AFE633C0B25">
+          <End Role="AG_Fields" Type="Self.AG_Fields" Multiplicity="1" />
+          <End Role="AG_Combos" Type="Self.AG_Combos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_Fields">
+              <PropertyRef Name="IDField" />
+            </Principal>
+            <Dependent Role="AG_Combos">
+              <PropertyRef Name="IDField" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK93AE09121025945">
+          <End Role="AG_FieldTypes" Type="Self.AG_FieldTypes" Multiplicity="1" />
+          <End Role="AG_Fields" Type="Self.AG_Fields" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_FieldTypes">
+              <PropertyRef Name="IDFieldType" />
+            </Principal>
+            <Dependent Role="AG_Fields">
+              <PropertyRef Name="IDFieldType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK93AE091241581B41">
+          <End Role="AG_DocumentTypes" Type="Self.AG_DocumentTypes" Multiplicity="1" />
+          <End Role="AG_Fields" Type="Self.AG_Fields" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_DocumentTypes">
+              <PropertyRef Name="IDDocumentType" />
+            </Principal>
+            <Dependent Role="AG_Fields">
+              <PropertyRef Name="IDDocumentType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK95E6642D41581B41">
+          <End Role="AG_DocumentTypes" Type="Self.AG_DocumentTypes" Multiplicity="0..1" />
+          <End Role="AG_Groups" Type="Self.AG_Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_DocumentTypes">
+              <PropertyRef Name="IDDocumentType" />
+            </Principal>
+            <Dependent Role="AG_Groups">
+              <PropertyRef Name="IDDocumentType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKB2CF5F4F7FF15821">
+          <End Role="AG_Users" Type="Self.AG_Users" Multiplicity="0..1" />
+          <End Role="AG_Query" Type="Self.AG_Query" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_Users">
+              <PropertyRef Name="IDUser" />
+            </Principal>
+            <Dependent Role="AG_Query">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKB38823586586BBC5">
+          <End Role="AG_Groups" Type="Self.AG_Groups" Multiplicity="1" />
+          <End Role="AG_UserGroups" Type="Self.AG_UserGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_Groups">
+              <PropertyRef Name="IDGroup" />
+            </Principal>
+            <Dependent Role="AG_UserGroups">
+              <PropertyRef Name="IDGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKB38823587FF15821">
+          <End Role="AG_Users" Type="Self.AG_Users" Multiplicity="1" />
+          <End Role="AG_UserGroups" Type="Self.AG_UserGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_Users">
+              <PropertyRef Name="IDUser" />
+            </Principal>
+            <Dependent Role="AG_UserGroups">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKECFC13DB41581B41">
+          <End Role="AG_DocumentTypes" Type="Self.AG_DocumentTypes" Multiplicity="0..1" />
+          <End Role="AG_Lots" Type="Self.AG_Lots" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_DocumentTypes">
+              <PropertyRef Name="IDDocumentType" />
+            </Principal>
+            <Dependent Role="AG_Lots">
+              <PropertyRef Name="IDDocumentType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKECFC13DB7FF15821">
+          <End Role="AG_Users" Type="Self.AG_Users" Multiplicity="1" />
+          <End Role="AG_Lots" Type="Self.AG_Lots" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_Users">
+              <PropertyRef Name="IDUser" />
+            </Principal>
+            <Dependent Role="AG_Lots">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKED6A2FEB41581B41">
+          <End Role="AG_DocumentTypes" Type="Self.AG_DocumentTypes" Multiplicity="1" />
+          <End Role="AG_AutoFill" Type="Self.AG_AutoFill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_DocumentTypes">
+              <PropertyRef Name="IDDocumentType" />
+            </Principal>
+            <Dependent Role="AG_AutoFill">
+              <PropertyRef Name="IDDocumentType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKED6A2FEB633C0B25">
+          <End Role="AG_Fields" Type="Self.AG_Fields" Multiplicity="1" />
+          <End Role="AG_AutoFill" Type="Self.AG_AutoFill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_Fields">
+              <PropertyRef Name="IDField" />
+            </Principal>
+            <Dependent Role="AG_AutoFill">
+              <PropertyRef Name="IDField" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKF28BD3D7FF15821">
+          <End Role="AG_Users" Type="Self.AG_Users" Multiplicity="0..1" />
+          <End Role="AG_LogUsers" Type="Self.AG_LogUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_Users">
+              <PropertyRef Name="IDUser" />
+            </Principal>
+            <Dependent Role="AG_LogUsers">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_IndexingMDPModelStoreContainer">
+          <EntitySet Name="AG_AutoFill" EntityType="Self.AG_AutoFill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AG_Combos" EntityType="Self.AG_Combos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AG_DocumentTypes" EntityType="Self.AG_DocumentTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AG_Fields" EntityType="Self.AG_Fields" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AG_FieldTypes" EntityType="Self.AG_FieldTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AG_Groups" EntityType="Self.AG_Groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AG_LogUserAction" EntityType="Self.AG_LogUserAction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AG_LogUsers" EntityType="Self.AG_LogUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AG_Lots" EntityType="Self.AG_Lots" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AG_Parametrics" EntityType="Self.AG_Parametrics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AG_Query" EntityType="Self.AG_Query" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AG_UserGroups" EntityType="Self.AG_UserGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AG_Users" EntityType="Self.AG_Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AG_Groups_AG_DocumentTypes" Association="Self.FK_AG_Groups_AG_DocumentTypes">
+            <End Role="AG_DocumentTypes" EntitySet="AG_DocumentTypes" />
+            <End Role="AG_Groups" EntitySet="AG_Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AG_Query_AG_Users" Association="Self.FK_AG_Query_AG_Users">
+            <End Role="AG_Users" EntitySet="AG_Users" />
+            <End Role="AG_Query" EntitySet="AG_Query" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AG_UserGroups_AG_Groups" Association="Self.FK_AG_UserGroups_AG_Groups">
+            <End Role="AG_Groups" EntitySet="AG_Groups" />
+            <End Role="AG_UserGroups" EntitySet="AG_UserGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMBO_FIELD" Association="Self.FK_COMBO_FIELD">
+            <End Role="AG_Fields" EntitySet="AG_Fields" />
+            <End Role="AG_Combos" EntitySet="AG_Combos" />
+          </AssociationSet>
+          <AssociationSet Name="FK8EE78AFE633C0B25" Association="Self.FK8EE78AFE633C0B25">
+            <End Role="AG_Fields" EntitySet="AG_Fields" />
+            <End Role="AG_Combos" EntitySet="AG_Combos" />
+          </AssociationSet>
+          <AssociationSet Name="FK93AE09121025945" Association="Self.FK93AE09121025945">
+            <End Role="AG_FieldTypes" EntitySet="AG_FieldTypes" />
+            <End Role="AG_Fields" EntitySet="AG_Fields" />
+          </AssociationSet>
+          <AssociationSet Name="FK93AE091241581B41" Association="Self.FK93AE091241581B41">
+            <End Role="AG_DocumentTypes" EntitySet="AG_DocumentTypes" />
+            <End Role="AG_Fields" EntitySet="AG_Fields" />
+          </AssociationSet>
+          <AssociationSet Name="FK95E6642D41581B41" Association="Self.FK95E6642D41581B41">
+            <End Role="AG_DocumentTypes" EntitySet="AG_DocumentTypes" />
+            <End Role="AG_Groups" EntitySet="AG_Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FKB2CF5F4F7FF15821" Association="Self.FKB2CF5F4F7FF15821">
+            <End Role="AG_Users" EntitySet="AG_Users" />
+            <End Role="AG_Query" EntitySet="AG_Query" />
+          </AssociationSet>
+          <AssociationSet Name="FKB38823586586BBC5" Association="Self.FKB38823586586BBC5">
+            <End Role="AG_Groups" EntitySet="AG_Groups" />
+            <End Role="AG_UserGroups" EntitySet="AG_UserGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FKB38823587FF15821" Association="Self.FKB38823587FF15821">
+            <End Role="AG_Users" EntitySet="AG_Users" />
+            <End Role="AG_UserGroups" EntitySet="AG_UserGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FKECFC13DB41581B41" Association="Self.FKECFC13DB41581B41">
+            <End Role="AG_DocumentTypes" EntitySet="AG_DocumentTypes" />
+            <End Role="AG_Lots" EntitySet="AG_Lots" />
+          </AssociationSet>
+          <AssociationSet Name="FKECFC13DB7FF15821" Association="Self.FKECFC13DB7FF15821">
+            <End Role="AG_Users" EntitySet="AG_Users" />
+            <End Role="AG_Lots" EntitySet="AG_Lots" />
+          </AssociationSet>
+          <AssociationSet Name="FKED6A2FEB41581B41" Association="Self.FKED6A2FEB41581B41">
+            <End Role="AG_DocumentTypes" EntitySet="AG_DocumentTypes" />
+            <End Role="AG_AutoFill" EntitySet="AG_AutoFill" />
+          </AssociationSet>
+          <AssociationSet Name="FKED6A2FEB633C0B25" Association="Self.FKED6A2FEB633C0B25">
+            <End Role="AG_Fields" EntitySet="AG_Fields" />
+            <End Role="AG_AutoFill" EntitySet="AG_AutoFill" />
+          </AssociationSet>
+          <AssociationSet Name="FKF28BD3D7FF15821" Association="Self.FKF28BD3D7FF15821">
+            <End Role="AG_Users" EntitySet="AG_Users" />
+            <End Role="AG_LogUsers" EntitySet="AG_LogUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_IndexingMDPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AG_AutoFill">
+          <Key>
+            <PropertyRef Name="IDAutoFill" />
+          </Key>
+          <Property Name="IDAutoFill" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AutoFillName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDDocumentType" Type="Int32" Nullable="false" />
+          <Property Name="IDExternalDataBase" Type="Int32" Nullable="false" />
+          <Property Name="IDExternalTable" Type="Int32" Nullable="false" />
+          <Property Name="IDField" Type="Int32" Nullable="false" />
+          <Property Name="IDExternalField" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AG_DocumentTypes" Relationship="Self.FKED6A2FEB41581B41" FromRole="AG_AutoFill" ToRole="AG_DocumentTypes" />
+          <NavigationProperty Name="AG_Fields" Relationship="Self.FKED6A2FEB633C0B25" FromRole="AG_AutoFill" ToRole="AG_Fields" />
+        </EntityType>
+        <EntityType Name="AG_Combos">
+          <Key>
+            <PropertyRef Name="IDCombo" />
+          </Key>
+          <Property Name="IDCombo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDField" Type="Int32" Nullable="false" />
+          <Property Name="ComboValue" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AG_Fields" Relationship="Self.FK_COMBO_FIELD" FromRole="AG_Combos" ToRole="AG_Fields" />
+          <NavigationProperty Name="AG_Fields1" Relationship="Self.FK8EE78AFE633C0B25" FromRole="AG_Combos" ToRole="AG_Fields" />
+        </EntityType>
+        <EntityType Name="AG_DocumentTypes">
+          <Key>
+            <PropertyRef Name="IDDocumentType" />
+          </Key>
+          <Property Name="IDDocumentType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IndexTable" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ExportTable" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DocumentIndexType" Type="Int32" Nullable="false" />
+          <Property Name="AllowSignDocument" Type="Boolean" Nullable="false" />
+          <Property Name="FileTemplateForSectors" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AG_AutoFill" Relationship="Self.FKED6A2FEB41581B41" FromRole="AG_DocumentTypes" ToRole="AG_AutoFill" />
+          <NavigationProperty Name="AG_Groups" Relationship="Self.FK_AG_Groups_AG_DocumentTypes" FromRole="AG_DocumentTypes" ToRole="AG_Groups" />
+          <NavigationProperty Name="AG_Fields" Relationship="Self.FK93AE091241581B41" FromRole="AG_DocumentTypes" ToRole="AG_Fields" />
+          <NavigationProperty Name="AG_Groups1" Relationship="Self.FK95E6642D41581B41" FromRole="AG_DocumentTypes" ToRole="AG_Groups" />
+          <NavigationProperty Name="AG_Lots" Relationship="Self.FKECFC13DB41581B41" FromRole="AG_DocumentTypes" ToRole="AG_Lots" />
+        </EntityType>
+        <EntityType Name="AG_Fields">
+          <Key>
+            <PropertyRef Name="IDField" />
+          </Key>
+          <Property Name="IDField" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDocumentType" Type="Int32" Nullable="false" />
+          <Property Name="IDFieldType" Type="Int32" Nullable="false" />
+          <Property Name="FieldName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaxValue" Type="Int32" Nullable="false" />
+          <Property Name="MinValue" Type="Int32" Nullable="false" />
+          <Property Name="IsNuleable" Type="Boolean" Nullable="false" />
+          <Property Name="IsUnique" Type="Boolean" Nullable="false" />
+          <Property Name="IsLookup" Type="Boolean" Nullable="false" />
+          <Property Name="IsEncrypted" Type="Boolean" Nullable="false" />
+          <Property Name="Posx1" Type="Int32" />
+          <Property Name="Posy1" Type="Int32" />
+          <Property Name="Posx2" Type="Int32" />
+          <Property Name="Posy2" Type="Int32" />
+          <Property Name="PageNum" Type="Int32" />
+          <Property Name="IsSector" Type="Boolean" />
+          <Property Name="IDVisualization" Type="Int32" />
+          <Property Name="IsTextDeployable" Type="Boolean" />
+          <NavigationProperty Name="AG_AutoFill" Relationship="Self.FKED6A2FEB633C0B25" FromRole="AG_Fields" ToRole="AG_AutoFill" />
+          <NavigationProperty Name="AG_Combos" Relationship="Self.FK_COMBO_FIELD" FromRole="AG_Fields" ToRole="AG_Combos" />
+          <NavigationProperty Name="AG_Combos1" Relationship="Self.FK8EE78AFE633C0B25" FromRole="AG_Fields" ToRole="AG_Combos" />
+          <NavigationProperty Name="AG_DocumentTypes" Relationship="Self.FK93AE091241581B41" FromRole="AG_Fields" ToRole="AG_DocumentTypes" />
+          <NavigationProperty Name="AG_FieldTypes" Relationship="Self.FK93AE09121025945" FromRole="AG_Fields" ToRole="AG_FieldTypes" />
+        </EntityType>
+        <EntityType Name="AG_FieldTypes">
+          <Key>
+            <PropertyRef Name="IDFieldType" />
+          </Key>
+          <Property Name="IDFieldType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FieldTypeDescription" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaxValue" Type="Int32" />
+          <Property Name="MinValue" Type="Int32" />
+          <NavigationProperty Name="AG_Fields" Relationship="Self.FK93AE09121025945" FromRole="AG_FieldTypes" ToRole="AG_Fields" />
+        </EntityType>
+        <EntityType Name="AG_Groups">
+          <Key>
+            <PropertyRef Name="IDGroup" />
+          </Key>
+          <Property Name="IDGroup" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IndexPermission" Type="Boolean" Nullable="false" />
+          <Property Name="AuditPermission" Type="Boolean" Nullable="false" />
+          <Property Name="ImportLotsPermission" Type="Boolean" Nullable="false" />
+          <Property Name="ExportLotsPermission" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDocumentsPermission" Type="Boolean" Nullable="false" />
+          <Property Name="DeleteDocumentsPermission" Type="Boolean" Nullable="false" />
+          <Property Name="EditDocumentsPermission" Type="Boolean" Nullable="false" />
+          <Property Name="CreateGroupPermission" Type="Boolean" Nullable="false" />
+          <Property Name="DeleteGroupPermission" Type="Boolean" Nullable="false" />
+          <Property Name="ModifyGroupPermission" Type="Boolean" Nullable="false" />
+          <Property Name="CreateUserPermission" Type="Boolean" Nullable="false" />
+          <Property Name="DeleteUsersPermission" Type="Boolean" Nullable="false" />
+          <Property Name="ModifyUsersPermission" Type="Boolean" Nullable="false" />
+          <Property Name="PrintDocumentsPermission" Type="Boolean" Nullable="false" />
+          <Property Name="EmailDocumentsPermission" Type="Boolean" Nullable="false" />
+          <Property Name="ExportDocumentsPermission" Type="Boolean" Nullable="false" />
+          <Property Name="CutPasteDocumentsPermission" Type="Boolean" Nullable="false" />
+          <Property Name="DocumentNotesPermission" Type="Boolean" Nullable="false" />
+          <Property Name="EditDocumentsDataPermission" Type="Boolean" Nullable="false" />
+          <Property Name="ConfigurePermission" Type="Boolean" Nullable="false" />
+          <Property Name="IDDocumentType" Type="Int32" />
+          <Property Name="DownloadDocumentPermission" Type="Byte" />
+          <Property Name="EditNotesPermission" Type="Byte" />
+          <Property Name="ViewNotesPermission" Type="Byte" />
+          <NavigationProperty Name="AG_DocumentTypes" Relationship="Self.FK_AG_Groups_AG_DocumentTypes" FromRole="AG_Groups" ToRole="AG_DocumentTypes" />
+          <NavigationProperty Name="AG_DocumentTypes1" Relationship="Self.FK95E6642D41581B41" FromRole="AG_Groups" ToRole="AG_DocumentTypes" />
+          <NavigationProperty Name="AG_UserGroups" Relationship="Self.FK_AG_UserGroups_AG_Groups" FromRole="AG_Groups" ToRole="AG_UserGroups" />
+          <NavigationProperty Name="AG_UserGroups1" Relationship="Self.FKB38823586586BBC5" FromRole="AG_Groups" ToRole="AG_UserGroups" />
+        </EntityType>
+        <EntityType Name="AG_LogUserAction">
+          <Key>
+            <PropertyRef Name="idLogUserAction" />
+          </Key>
+          <Property Name="idLogUserAction" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDUser" Type="Int32" />
+          <Property Name="Action" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EventDate" Type="DateTime" Precision="3" />
+          <Property Name="IDDocumentType" Type="Int32" />
+          <Property Name="IdsExport" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AG_LogUsers">
+          <Key>
+            <PropertyRef Name="IDLogRegister" />
+          </Key>
+          <Property Name="IDLogRegister" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDUser" Type="Int32" />
+          <Property Name="Login" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Logout" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Permanence" Type="Int64" />
+          <NavigationProperty Name="AG_Users" Relationship="Self.FKF28BD3D7FF15821" FromRole="AG_LogUsers" ToRole="AG_Users" />
+        </EntityType>
+        <EntityType Name="AG_Lots">
+          <Key>
+            <PropertyRef Name="IDLot" />
+          </Key>
+          <Property Name="IDLot" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LotName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LotOrigPath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="LotCreationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsLotClose" Type="Boolean" Nullable="false" />
+          <Property Name="LotTotalPages" Type="Int32" />
+          <Property Name="LotDestPath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IDDocumentType" Type="Int32" />
+          <Property Name="Id_State" Type="Int32" Nullable="false" />
+          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="LotState" Type="Int32" />
+          <Property Name="LotDescPath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LotIndexType" Type="Int32" />
+          <NavigationProperty Name="AG_DocumentTypes" Relationship="Self.FKECFC13DB41581B41" FromRole="AG_Lots" ToRole="AG_DocumentTypes" />
+          <NavigationProperty Name="AG_Users" Relationship="Self.FKECFC13DB7FF15821" FromRole="AG_Lots" ToRole="AG_Users" />
+        </EntityType>
+        <EntityType Name="AG_Parametrics">
+          <Key>
+            <PropertyRef Name="IDParam" />
+          </Key>
+          <Property Name="IDParam" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParamName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ParamValue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AG_Query">
+          <Key>
+            <PropertyRef Name="IDQuery" />
+          </Key>
+          <Property Name="IDQuery" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="queryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="queryStatement" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IDUser" Type="Int32" />
+          <NavigationProperty Name="AG_Users" Relationship="Self.FK_AG_Query_AG_Users" FromRole="AG_Query" ToRole="AG_Users" />
+          <NavigationProperty Name="AG_Users1" Relationship="Self.FKB2CF5F4F7FF15821" FromRole="AG_Query" ToRole="AG_Users" />
+        </EntityType>
+        <EntityType Name="AG_UserGroups">
+          <Key>
+            <PropertyRef Name="IDUserGroup" />
+          </Key>
+          <Property Name="IDUserGroup" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDUser" Type="Int32" Nullable="false" />
+          <Property Name="IDGroup" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AG_Groups" Relationship="Self.FK_AG_UserGroups_AG_Groups" FromRole="AG_UserGroups" ToRole="AG_Groups" />
+          <NavigationProperty Name="AG_Groups1" Relationship="Self.FKB38823586586BBC5" FromRole="AG_UserGroups" ToRole="AG_Groups" />
+          <NavigationProperty Name="AG_Users" Relationship="Self.FKB38823587FF15821" FromRole="AG_UserGroups" ToRole="AG_Users" />
+        </EntityType>
+        <EntityType Name="AG_Users">
+          <Key>
+            <PropertyRef Name="IDUser" />
+          </Key>
+          <Property Name="IDUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="UserDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="IdConfigSearch" Type="Int32" />
+          <Property Name="logueado" Type="Byte" />
+          <Property Name="ult_ingreso" Type="DateTime" Precision="3" />
+          <Property Name="ReceiveMail" Type="Boolean" />
+          <Property Name="Mail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AG_LogUsers" Relationship="Self.FKF28BD3D7FF15821" FromRole="AG_Users" ToRole="AG_LogUsers" />
+          <NavigationProperty Name="AG_Lots" Relationship="Self.FKECFC13DB7FF15821" FromRole="AG_Users" ToRole="AG_Lots" />
+          <NavigationProperty Name="AG_Query" Relationship="Self.FK_AG_Query_AG_Users" FromRole="AG_Users" ToRole="AG_Query" />
+          <NavigationProperty Name="AG_Query1" Relationship="Self.FKB2CF5F4F7FF15821" FromRole="AG_Users" ToRole="AG_Query" />
+          <NavigationProperty Name="AG_UserGroups" Relationship="Self.FKB38823587FF15821" FromRole="AG_Users" ToRole="AG_UserGroups" />
+        </EntityType>
+        <Association Name="FKED6A2FEB41581B41">
+          <End Role="AG_DocumentTypes" Type="Self.AG_DocumentTypes" Multiplicity="1" />
+          <End Role="AG_AutoFill" Type="Self.AG_AutoFill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_DocumentTypes">
+              <PropertyRef Name="IDDocumentType" />
+            </Principal>
+            <Dependent Role="AG_AutoFill">
+              <PropertyRef Name="IDDocumentType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKED6A2FEB633C0B25">
+          <End Role="AG_Fields" Type="Self.AG_Fields" Multiplicity="1" />
+          <End Role="AG_AutoFill" Type="Self.AG_AutoFill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_Fields">
+              <PropertyRef Name="IDField" />
+            </Principal>
+            <Dependent Role="AG_AutoFill">
+              <PropertyRef Name="IDField" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMBO_FIELD">
+          <End Role="AG_Fields" Type="Self.AG_Fields" Multiplicity="1" />
+          <End Role="AG_Combos" Type="Self.AG_Combos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_Fields">
+              <PropertyRef Name="IDField" />
+            </Principal>
+            <Dependent Role="AG_Combos">
+              <PropertyRef Name="IDField" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK8EE78AFE633C0B25">
+          <End Role="AG_Fields" Type="Self.AG_Fields" Multiplicity="1" />
+          <End Role="AG_Combos" Type="Self.AG_Combos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_Fields">
+              <PropertyRef Name="IDField" />
+            </Principal>
+            <Dependent Role="AG_Combos">
+              <PropertyRef Name="IDField" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AG_Groups_AG_DocumentTypes">
+          <End Role="AG_DocumentTypes" Type="Self.AG_DocumentTypes" Multiplicity="0..1" />
+          <End Role="AG_Groups" Type="Self.AG_Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_DocumentTypes">
+              <PropertyRef Name="IDDocumentType" />
+            </Principal>
+            <Dependent Role="AG_Groups">
+              <PropertyRef Name="IDDocumentType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK93AE091241581B41">
+          <End Role="AG_DocumentTypes" Type="Self.AG_DocumentTypes" Multiplicity="1" />
+          <End Role="AG_Fields" Type="Self.AG_Fields" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_DocumentTypes">
+              <PropertyRef Name="IDDocumentType" />
+            </Principal>
+            <Dependent Role="AG_Fields">
+              <PropertyRef Name="IDDocumentType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK95E6642D41581B41">
+          <End Role="AG_DocumentTypes" Type="Self.AG_DocumentTypes" Multiplicity="0..1" />
+          <End Role="AG_Groups" Type="Self.AG_Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_DocumentTypes">
+              <PropertyRef Name="IDDocumentType" />
+            </Principal>
+            <Dependent Role="AG_Groups">
+              <PropertyRef Name="IDDocumentType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKECFC13DB41581B41">
+          <End Role="AG_DocumentTypes" Type="Self.AG_DocumentTypes" Multiplicity="0..1" />
+          <End Role="AG_Lots" Type="Self.AG_Lots" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_DocumentTypes">
+              <PropertyRef Name="IDDocumentType" />
+            </Principal>
+            <Dependent Role="AG_Lots">
+              <PropertyRef Name="IDDocumentType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK93AE09121025945">
+          <End Role="AG_FieldTypes" Type="Self.AG_FieldTypes" Multiplicity="1" />
+          <End Role="AG_Fields" Type="Self.AG_Fields" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_FieldTypes">
+              <PropertyRef Name="IDFieldType" />
+            </Principal>
+            <Dependent Role="AG_Fields">
+              <PropertyRef Name="IDFieldType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AG_UserGroups_AG_Groups">
+          <End Role="AG_Groups" Type="Self.AG_Groups" Multiplicity="1" />
+          <End Role="AG_UserGroups" Type="Self.AG_UserGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_Groups">
+              <PropertyRef Name="IDGroup" />
+            </Principal>
+            <Dependent Role="AG_UserGroups">
+              <PropertyRef Name="IDGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKB38823586586BBC5">
+          <End Role="AG_Groups" Type="Self.AG_Groups" Multiplicity="1" />
+          <End Role="AG_UserGroups" Type="Self.AG_UserGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_Groups">
+              <PropertyRef Name="IDGroup" />
+            </Principal>
+            <Dependent Role="AG_UserGroups">
+              <PropertyRef Name="IDGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKF28BD3D7FF15821">
+          <End Role="AG_Users" Type="Self.AG_Users" Multiplicity="0..1" />
+          <End Role="AG_LogUsers" Type="Self.AG_LogUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_Users">
+              <PropertyRef Name="IDUser" />
+            </Principal>
+            <Dependent Role="AG_LogUsers">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKECFC13DB7FF15821">
+          <End Role="AG_Users" Type="Self.AG_Users" Multiplicity="1" />
+          <End Role="AG_Lots" Type="Self.AG_Lots" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_Users">
+              <PropertyRef Name="IDUser" />
+            </Principal>
+            <Dependent Role="AG_Lots">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AG_Query_AG_Users">
+          <End Role="AG_Users" Type="Self.AG_Users" Multiplicity="0..1" />
+          <End Role="AG_Query" Type="Self.AG_Query" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_Users">
+              <PropertyRef Name="IDUser" />
+            </Principal>
+            <Dependent Role="AG_Query">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKB2CF5F4F7FF15821">
+          <End Role="AG_Users" Type="Self.AG_Users" Multiplicity="0..1" />
+          <End Role="AG_Query" Type="Self.AG_Query" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_Users">
+              <PropertyRef Name="IDUser" />
+            </Principal>
+            <Dependent Role="AG_Query">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKB38823587FF15821">
+          <End Role="AG_Users" Type="Self.AG_Users" Multiplicity="1" />
+          <End Role="AG_UserGroups" Type="Self.AG_UserGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AG_Users">
+              <PropertyRef Name="IDUser" />
+            </Principal>
+            <Dependent Role="AG_UserGroups">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_IndexingMDPEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AG_AutoFill" EntityType="Self.AG_AutoFill" />
+          <EntitySet Name="AG_Combos" EntityType="Self.AG_Combos" />
+          <EntitySet Name="AG_DocumentTypes" EntityType="Self.AG_DocumentTypes" />
+          <EntitySet Name="AG_Fields" EntityType="Self.AG_Fields" />
+          <EntitySet Name="AG_FieldTypes" EntityType="Self.AG_FieldTypes" />
+          <EntitySet Name="AG_Groups" EntityType="Self.AG_Groups" />
+          <EntitySet Name="AG_LogUserAction" EntityType="Self.AG_LogUserAction" />
+          <EntitySet Name="AG_LogUsers" EntityType="Self.AG_LogUsers" />
+          <EntitySet Name="AG_Lots" EntityType="Self.AG_Lots" />
+          <EntitySet Name="AG_Parametrics" EntityType="Self.AG_Parametrics" />
+          <EntitySet Name="AG_Query" EntityType="Self.AG_Query" />
+          <EntitySet Name="AG_UserGroups" EntityType="Self.AG_UserGroups" />
+          <EntitySet Name="AG_Users" EntityType="Self.AG_Users" />
+          <AssociationSet Name="FKED6A2FEB41581B41" Association="Self.FKED6A2FEB41581B41">
+            <End Role="AG_DocumentTypes" EntitySet="AG_DocumentTypes" />
+            <End Role="AG_AutoFill" EntitySet="AG_AutoFill" />
+          </AssociationSet>
+          <AssociationSet Name="FKED6A2FEB633C0B25" Association="Self.FKED6A2FEB633C0B25">
+            <End Role="AG_Fields" EntitySet="AG_Fields" />
+            <End Role="AG_AutoFill" EntitySet="AG_AutoFill" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMBO_FIELD" Association="Self.FK_COMBO_FIELD">
+            <End Role="AG_Fields" EntitySet="AG_Fields" />
+            <End Role="AG_Combos" EntitySet="AG_Combos" />
+          </AssociationSet>
+          <AssociationSet Name="FK8EE78AFE633C0B25" Association="Self.FK8EE78AFE633C0B25">
+            <End Role="AG_Fields" EntitySet="AG_Fields" />
+            <End Role="AG_Combos" EntitySet="AG_Combos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AG_Groups_AG_DocumentTypes" Association="Self.FK_AG_Groups_AG_DocumentTypes">
+            <End Role="AG_DocumentTypes" EntitySet="AG_DocumentTypes" />
+            <End Role="AG_Groups" EntitySet="AG_Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK93AE091241581B41" Association="Self.FK93AE091241581B41">
+            <End Role="AG_DocumentTypes" EntitySet="AG_DocumentTypes" />
+            <End Role="AG_Fields" EntitySet="AG_Fields" />
+          </AssociationSet>
+          <AssociationSet Name="FK95E6642D41581B41" Association="Self.FK95E6642D41581B41">
+            <End Role="AG_DocumentTypes" EntitySet="AG_DocumentTypes" />
+            <End Role="AG_Groups" EntitySet="AG_Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FKECFC13DB41581B41" Association="Self.FKECFC13DB41581B41">
+            <End Role="AG_DocumentTypes" EntitySet="AG_DocumentTypes" />
+            <End Role="AG_Lots" EntitySet="AG_Lots" />
+          </AssociationSet>
+          <AssociationSet Name="FK93AE09121025945" Association="Self.FK93AE09121025945">
+            <End Role="AG_FieldTypes" EntitySet="AG_FieldTypes" />
+            <End Role="AG_Fields" EntitySet="AG_Fields" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AG_UserGroups_AG_Groups" Association="Self.FK_AG_UserGroups_AG_Groups">
+            <End Role="AG_Groups" EntitySet="AG_Groups" />
+            <End Role="AG_UserGroups" EntitySet="AG_UserGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FKB38823586586BBC5" Association="Self.FKB38823586586BBC5">
+            <End Role="AG_Groups" EntitySet="AG_Groups" />
+            <End Role="AG_UserGroups" EntitySet="AG_UserGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FKF28BD3D7FF15821" Association="Self.FKF28BD3D7FF15821">
+            <End Role="AG_Users" EntitySet="AG_Users" />
+            <End Role="AG_LogUsers" EntitySet="AG_LogUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FKECFC13DB7FF15821" Association="Self.FKECFC13DB7FF15821">
+            <End Role="AG_Users" EntitySet="AG_Users" />
+            <End Role="AG_Lots" EntitySet="AG_Lots" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AG_Query_AG_Users" Association="Self.FK_AG_Query_AG_Users">
+            <End Role="AG_Users" EntitySet="AG_Users" />
+            <End Role="AG_Query" EntitySet="AG_Query" />
+          </AssociationSet>
+          <AssociationSet Name="FKB2CF5F4F7FF15821" Association="Self.FKB2CF5F4F7FF15821">
+            <End Role="AG_Users" EntitySet="AG_Users" />
+            <End Role="AG_Query" EntitySet="AG_Query" />
+          </AssociationSet>
+          <AssociationSet Name="FKB38823587FF15821" Association="Self.FKB38823587FF15821">
+            <End Role="AG_Users" EntitySet="AG_Users" />
+            <End Role="AG_UserGroups" EntitySet="AG_UserGroups" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_IndexingMDPModelStoreContainer" CdmEntityContainer="DB_IndexingMDPEntities1">
+          <EntitySetMapping Name="AG_AutoFill">
+            <EntityTypeMapping TypeName="DB_IndexingMDPModel.AG_AutoFill">
+              <MappingFragment StoreEntitySet="AG_AutoFill">
+                <ScalarProperty Name="IDAutoFill" ColumnName="IDAutoFill" />
+                <ScalarProperty Name="AutoFillName" ColumnName="AutoFillName" />
+                <ScalarProperty Name="IDDocumentType" ColumnName="IDDocumentType" />
+                <ScalarProperty Name="IDExternalDataBase" ColumnName="IDExternalDataBase" />
+                <ScalarProperty Name="IDExternalTable" ColumnName="IDExternalTable" />
+                <ScalarProperty Name="IDField" ColumnName="IDField" />
+                <ScalarProperty Name="IDExternalField" ColumnName="IDExternalField" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AG_Combos">
+            <EntityTypeMapping TypeName="DB_IndexingMDPModel.AG_Combos">
+              <MappingFragment StoreEntitySet="AG_Combos">
+                <ScalarProperty Name="IDCombo" ColumnName="IDCombo" />
+                <ScalarProperty Name="IDField" ColumnName="IDField" />
+                <ScalarProperty Name="ComboValue" ColumnName="ComboValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AG_DocumentTypes">
+            <EntityTypeMapping TypeName="DB_IndexingMDPModel.AG_DocumentTypes">
+              <MappingFragment StoreEntitySet="AG_DocumentTypes">
+                <ScalarProperty Name="IDDocumentType" ColumnName="IDDocumentType" />
+                <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
+                <ScalarProperty Name="IndexTable" ColumnName="IndexTable" />
+                <ScalarProperty Name="ExportTable" ColumnName="ExportTable" />
+                <ScalarProperty Name="DocumentIndexType" ColumnName="DocumentIndexType" />
+                <ScalarProperty Name="AllowSignDocument" ColumnName="AllowSignDocument" />
+                <ScalarProperty Name="FileTemplateForSectors" ColumnName="FileTemplateForSectors" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AG_Fields">
+            <EntityTypeMapping TypeName="DB_IndexingMDPModel.AG_Fields">
+              <MappingFragment StoreEntitySet="AG_Fields">
+                <ScalarProperty Name="IDField" ColumnName="IDField" />
+                <ScalarProperty Name="IDDocumentType" ColumnName="IDDocumentType" />
+                <ScalarProperty Name="IDFieldType" ColumnName="IDFieldType" />
+                <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+                <ScalarProperty Name="MaxValue" ColumnName="MaxValue" />
+                <ScalarProperty Name="MinValue" ColumnName="MinValue" />
+                <ScalarProperty Name="IsNuleable" ColumnName="IsNuleable" />
+                <ScalarProperty Name="IsUnique" ColumnName="IsUnique" />
+                <ScalarProperty Name="IsLookup" ColumnName="IsLookup" />
+                <ScalarProperty Name="IsEncrypted" ColumnName="IsEncrypted" />
+                <ScalarProperty Name="Posx1" ColumnName="Posx1" />
+                <ScalarProperty Name="Posy1" ColumnName="Posy1" />
+                <ScalarProperty Name="Posx2" ColumnName="Posx2" />
+                <ScalarProperty Name="Posy2" ColumnName="Posy2" />
+                <ScalarProperty Name="PageNum" ColumnName="PageNum" />
+                <ScalarProperty Name="IsSector" ColumnName="IsSector" />
+                <ScalarProperty Name="IDVisualization" ColumnName="IDVisualization" />
+                <ScalarProperty Name="IsTextDeployable" ColumnName="IsTextDeployable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AG_FieldTypes">
+            <EntityTypeMapping TypeName="DB_IndexingMDPModel.AG_FieldTypes">
+              <MappingFragment StoreEntitySet="AG_FieldTypes">
+                <ScalarProperty Name="IDFieldType" ColumnName="IDFieldType" />
+                <ScalarProperty Name="FieldTypeDescription" ColumnName="FieldTypeDescription" />
+                <ScalarProperty Name="MaxValue" ColumnName="MaxValue" />
+                <ScalarProperty Name="MinValue" ColumnName="MinValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AG_Groups">
+            <EntityTypeMapping TypeName="DB_IndexingMDPModel.AG_Groups">
+              <MappingFragment StoreEntitySet="AG_Groups">
+                <ScalarProperty Name="IDGroup" ColumnName="IDGroup" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="IndexPermission" ColumnName="IndexPermission" />
+                <ScalarProperty Name="AuditPermission" ColumnName="AuditPermission" />
+                <ScalarProperty Name="ImportLotsPermission" ColumnName="ImportLotsPermission" />
+                <ScalarProperty Name="ExportLotsPermission" ColumnName="ExportLotsPermission" />
+                <ScalarProperty Name="CreateDocumentsPermission" ColumnName="CreateDocumentsPermission" />
+                <ScalarProperty Name="DeleteDocumentsPermission" ColumnName="DeleteDocumentsPermission" />
+                <ScalarProperty Name="EditDocumentsPermission" ColumnName="EditDocumentsPermission" />
+                <ScalarProperty Name="CreateGroupPermission" ColumnName="CreateGroupPermission" />
+                <ScalarProperty Name="DeleteGroupPermission" ColumnName="DeleteGroupPermission" />
+                <ScalarProperty Name="ModifyGroupPermission" ColumnName="ModifyGroupPermission" />
+                <ScalarProperty Name="CreateUserPermission" ColumnName="CreateUserPermission" />
+                <ScalarProperty Name="DeleteUsersPermission" ColumnName="DeleteUsersPermission" />
+                <ScalarProperty Name="ModifyUsersPermission" ColumnName="ModifyUsersPermission" />
+                <ScalarProperty Name="PrintDocumentsPermission" ColumnName="PrintDocumentsPermission" />
+                <ScalarProperty Name="EmailDocumentsPermission" ColumnName="EmailDocumentsPermission" />
+                <ScalarProperty Name="ExportDocumentsPermission" ColumnName="ExportDocumentsPermission" />
+                <ScalarProperty Name="CutPasteDocumentsPermission" ColumnName="CutPasteDocumentsPermission" />
+                <ScalarProperty Name="DocumentNotesPermission" ColumnName="DocumentNotesPermission" />
+                <ScalarProperty Name="EditDocumentsDataPermission" ColumnName="EditDocumentsDataPermission" />
+                <ScalarProperty Name="ConfigurePermission" ColumnName="ConfigurePermission" />
+                <ScalarProperty Name="IDDocumentType" ColumnName="IDDocumentType" />
+                <ScalarProperty Name="DownloadDocumentPermission" ColumnName="DownloadDocumentPermission" />
+                <ScalarProperty Name="EditNotesPermission" ColumnName="EditNotesPermission" />
+                <ScalarProperty Name="ViewNotesPermission" ColumnName="ViewNotesPermission" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AG_LogUserAction">
+            <EntityTypeMapping TypeName="DB_IndexingMDPModel.AG_LogUserAction">
+              <MappingFragment StoreEntitySet="AG_LogUserAction">
+                <ScalarProperty Name="idLogUserAction" ColumnName="idLogUserAction" />
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+                <ScalarProperty Name="IDDocumentType" ColumnName="IDDocumentType" />
+                <ScalarProperty Name="IdsExport" ColumnName="IdsExport" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AG_LogUsers">
+            <EntityTypeMapping TypeName="DB_IndexingMDPModel.AG_LogUsers">
+              <MappingFragment StoreEntitySet="AG_LogUsers">
+                <ScalarProperty Name="IDLogRegister" ColumnName="IDLogRegister" />
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Logout" ColumnName="Logout" />
+                <ScalarProperty Name="Permanence" ColumnName="Permanence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AG_Lots">
+            <EntityTypeMapping TypeName="DB_IndexingMDPModel.AG_Lots">
+              <MappingFragment StoreEntitySet="AG_Lots">
+                <ScalarProperty Name="IDLot" ColumnName="IDLot" />
+                <ScalarProperty Name="LotName" ColumnName="LotName" />
+                <ScalarProperty Name="LotOrigPath" ColumnName="LotOrigPath" />
+                <ScalarProperty Name="LotCreationDate" ColumnName="LotCreationDate" />
+                <ScalarProperty Name="IsLotClose" ColumnName="IsLotClose" />
+                <ScalarProperty Name="LotTotalPages" ColumnName="LotTotalPages" />
+                <ScalarProperty Name="LotDestPath" ColumnName="LotDestPath" />
+                <ScalarProperty Name="IDDocumentType" ColumnName="IDDocumentType" />
+                <ScalarProperty Name="Id_State" ColumnName="Id_State" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="LotState" ColumnName="LotState" />
+                <ScalarProperty Name="LotDescPath" ColumnName="LotDescPath" />
+                <ScalarProperty Name="LotIndexType" ColumnName="LotIndexType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AG_Parametrics">
+            <EntityTypeMapping TypeName="DB_IndexingMDPModel.AG_Parametrics">
+              <MappingFragment StoreEntitySet="AG_Parametrics">
+                <ScalarProperty Name="IDParam" ColumnName="IDParam" />
+                <ScalarProperty Name="ParamName" ColumnName="ParamName" />
+                <ScalarProperty Name="ParamValue" ColumnName="ParamValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AG_Query">
+            <EntityTypeMapping TypeName="DB_IndexingMDPModel.AG_Query">
+              <MappingFragment StoreEntitySet="AG_Query">
+                <ScalarProperty Name="IDQuery" ColumnName="IDQuery" />
+                <ScalarProperty Name="queryName" ColumnName="queryName" />
+                <ScalarProperty Name="queryStatement" ColumnName="queryStatement" />
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AG_UserGroups">
+            <EntityTypeMapping TypeName="DB_IndexingMDPModel.AG_UserGroups">
+              <MappingFragment StoreEntitySet="AG_UserGroups">
+                <ScalarProperty Name="IDUserGroup" ColumnName="IDUserGroup" />
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+                <ScalarProperty Name="IDGroup" ColumnName="IDGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AG_Users">
+            <EntityTypeMapping TypeName="DB_IndexingMDPModel.AG_Users">
+              <MappingFragment StoreEntitySet="AG_Users">
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="UserDescription" ColumnName="UserDescription" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IdConfigSearch" ColumnName="IdConfigSearch" />
+                <ScalarProperty Name="logueado" ColumnName="logueado" />
+                <ScalarProperty Name="ult_ingreso" ColumnName="ult_ingreso" />
+                <ScalarProperty Name="ReceiveMail" ColumnName="ReceiveMail" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

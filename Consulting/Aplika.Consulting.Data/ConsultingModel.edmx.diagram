@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ee909726b5c740bdb318e65083fee57e" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_IndexingMDPModel.AG_AutoFill" Width="1.5" PointX="6" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IndexingMDPModel.AG_Combos" Width="1.5" PointX="11.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IndexingMDPModel.AG_DocumentTypes" Width="1.5" PointX="3.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IndexingMDPModel.AG_Fields" Width="1.5" PointX="9" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IndexingMDPModel.AG_FieldTypes" Width="1.5" PointX="6.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IndexingMDPModel.AG_Groups" Width="1.5" PointX="0.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IndexingMDPModel.AG_LogUserAction" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IndexingMDPModel.AG_LogUsers" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IndexingMDPModel.AG_Lots" Width="1.5" PointX="6" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IndexingMDPModel.AG_Parametrics" Width="1.5" PointX="8.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IndexingMDPModel.AG_Query" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IndexingMDPModel.AG_UserGroups" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_IndexingMDPModel.AG_Users" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <AssociationConnector Association="DB_IndexingMDPModel.FKED6A2FEB41581B41" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IndexingMDPModel.FKED6A2FEB633C0B25" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IndexingMDPModel.FK_COMBO_FIELD" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IndexingMDPModel.FK8EE78AFE633C0B25" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IndexingMDPModel.FK_AG_Groups_AG_DocumentTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IndexingMDPModel.FK93AE091241581B41" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IndexingMDPModel.FK95E6642D41581B41" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IndexingMDPModel.FKECFC13DB41581B41" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IndexingMDPModel.FK93AE09121025945" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IndexingMDPModel.FK_AG_UserGroups_AG_Groups" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IndexingMDPModel.FKB38823586586BBC5" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IndexingMDPModel.FKF28BD3D7FF15821" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IndexingMDPModel.FKECFC13DB7FF15821" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IndexingMDPModel.FK_AG_Query_AG_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IndexingMDPModel.FKB2CF5F4F7FF15821" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_IndexingMDPModel.FKB38823587FF15821" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
